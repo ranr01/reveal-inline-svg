@@ -1,6 +1,6 @@
 # reveal-inline-svg
 Automatically inlines SVG files in Reveal.js presentations. 
-Allows the application of fragments, animations etc.to SVG DOM elements.
+Allows the application of fragments, animations etc. to SVG DOM elements.
 
 ## Instalation
 Just include `inline_svg.js` as a dependency of Reveal inside the `Rveal.initialize` function in your presentation's HTML file.
