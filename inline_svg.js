@@ -1,6 +1,5 @@
 Reveal.getSlides().forEach(function(s){
   s.querySelectorAll("object").forEach(function(e) {
-    //console.log(e);
     var params;
     params = e.querySelectorAll("param");
     //replacing object with inline svg
