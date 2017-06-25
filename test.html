@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Testing</title>
+
+		<link rel="stylesheet" href="/css/reveal.css">
+		<link rel="stylesheet" href="/css/theme/white.css">
+    <link rel="stylesheet" href="style.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/css/print/pdf.css' : '/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h4 class="fragment" data-fragment-index="5">Animate with Velocity.js!</h4>
+					<object type="image/svg+xml" data="drawing.svg">
+							<param id="rect10" class="fragment fade-right" data-fragment-index="3">
+							<param id="path14" class="fragment fade-up" data-fragment-index="1">
+							<param id="path20" class="fragment fade-left" data-fragment-index="2">
+					</object>
+					<h4 class="fragment" data-fragment-index="4">That was a fragmented svg</h4>
+					<div class="fragment" data-fragment-index="6" id="animate_1"></div>
+				</section>
+
+			</div>
+		</div>
+  	<script src="/lib/js/head.min.js"></script>
+		<script src="/js/reveal.js"></script>
+		<script src= '/lib/js/velocity.min.js'></script>
+
+		<script>
+      // More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+        math: {
+		        mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+		          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+	           },
+
+        viewDistance: 2,
+
+				dependencies: [
+					{ src: '/plugin/markdown/marked.js' },
+					{ src: '/plugin/markdown/markdown.js' },
+					{ src: '/plugin/notes/notes.js', async: true },
+					{ src: '/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '/plugin/math/math.js', async: true },
+					{ src:'svg.js' }
+        ]
+			});
+			Reveal.addEventListener( 'fragmentshown', function( event ) {
+	// event.fragment = the fragment DOM element
+				console.log(event.fragment);
+				switch (event.fragment.getAttribute("id")) {
+					case "animate_1":
+						Velocity(
+							Reveal.getCurrentSlide().querySelector("#rect10"),
+							{y:'-=20'}
+						);
+						Velocity(
+							Reveal.getCurrentSlide().querySelector("#path20"),
+							{translateY:'+20'}
+						);
+						break;
+				}
+			} );
+			Reveal.addEventListener( 'fragmenthidden', function( event ) {
+	// event.fragment = the fragment DOM element
+				console.log(event.fragment);
+				switch (event.fragment.getAttribute("id")) {
+					case "animate_1":
+						Velocity(
+							Reveal.getCurrentSlide().querySelector("#rect10"),
+							"reverse"
+						);
+						Velocity(
+							Reveal.getCurrentSlide().querySelector("#path20"),
+							"reverse"
+						);
+						break;
+				}
+			} );
+		</script>
+	</body>
+</html>
