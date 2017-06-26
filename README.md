@@ -16,5 +16,8 @@ Example:
 ```
 This code will replace the `object` element with an SVG element using the SVG in `drawing.svg`. In addition, it will add the `class="fragment" data-fragment-index="3"` attributes to `#rect10` inside the SVG DOM.
 
+## Demo
+To see a simple demo slide put all files within your reveal.js folder and point your browser to `test.html`.
+
 ## Dependencies
 The example presentation (`test.html`) uses Velocity.js to demonstrate animation of SVG elements.
