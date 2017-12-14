@@ -1,8 +1,10 @@
-Note on browser compatibility: It seems that out of IE, Edge, Chrome and Firefox, the Javascript code is only compatible with Firefox. The other browsers seem to not implement the same JS API for the `object` html element so the selection and extraction of the svg element fails for various reasons. I do not expect to have the time to try and fix this in the near fututre. :-(
-
 # reveal-inline-svg
 Automatically inlines SVG files in Reveal.js presentations.
 Allows the application of fragments, animations etc. to SVG DOM elements.
+
+### Note on browser compatibility: 
+It seems that out of IE, Edge, Chrome and Firefox, reveal-inline-svg is only compatible with Firefox. The other browsers seem to not implement the same JS API for the `object` html element so the selection and extraction of the svg element fails for various reasons. I do not expect to have the time to try and fix this in the near fututre. :-(
+
 
 ## Installation
 Just include `inline_svg.js` as a dependency of Reveal inside the `Reveal.initialize` function in your presentation's HTML file.
